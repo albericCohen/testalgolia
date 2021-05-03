@@ -32,10 +32,12 @@ import { connectAutocomplete } from "instantsearch.js/es/connectors";
       >
         <div *ngFor="let index of state.indices || []">
           <mat-option
+            class="autocomplete-line"
             *ngFor="let option of index.hits"
             [value]="option.libelle"
             (click)="onQuerySuggestionClick.emit({ query: option.libelle })"
           >
+            <img class="autocomplete-img" src="{{ option.image }}" />
             {{ option.libelle }}
           </mat-option>
         </div>
